@@ -215,7 +215,7 @@ if(!$_SESSION['logged_in']){
   
     <main class="mt-5 pt-3">
     <a href="add.php"><button type="button" class="btn btn-primary">new student</button></a>
-   <table>
+   <table class='mt-2'>
   <thead>
      
     <tr>
@@ -223,7 +223,6 @@ if(!$_SESSION['logged_in']){
       <th scope="col">First</th>
       <th scope="col">phone</th>
       <th scope="col">class</th>
-      <th scope="col">section</th>
     </tr>
   </thead>
   <tbody>
@@ -240,7 +239,6 @@ if(!$_SESSION['logged_in']){
         <td><?php echo $row['firstname']?></td>
         <td><?php echo $row['phone']?></td>
         <td><?php echo $row['class']?></td>
-        <td><?php echo $row['section']?></td>
       
         <td>
 <?php

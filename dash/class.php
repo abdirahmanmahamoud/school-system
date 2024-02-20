@@ -12,6 +12,7 @@ if(!$_SESSION['logged_in']){
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Aut.css">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
@@ -38,7 +39,7 @@ if(!$_SESSION['logged_in']){
         <a
           class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
           href="#"
-          >name Design</a>
+          >name Design</a
         >
         <button
           class="navbar-toggler"
@@ -126,7 +127,6 @@ if(!$_SESSION['logged_in']){
                   </span>
                 </span>
               </a>
-              
     
             </li> -->
             <li>
@@ -139,7 +139,7 @@ if(!$_SESSION['logged_in']){
                 <span>student attedance</span>
                 <span class="ms-auto">
                   <span class="right-icon">
-                    <i class="bi bi-chevron-setting"></i>
+                    <i class="bi bi-chevron-do"></i>
                   </span>
                 </span>
               </a>
@@ -165,45 +165,19 @@ if(!$_SESSION['logged_in']){
 
               </div>
             </li> 
-            <li>
-              <a
-                class="nav-link px-3 sidebar-link"
-                data-bs-toggle="collapse"
-                href="#llllll"
-              >
-                <span class="me-2" ><i class="bi bi-layout-split"></i></span>
-                <span>view</span>
-                <span class="ms-auto">
-                  <span class="right-icon">
-                    <i class="bi bi-chevron-do"></i>
-                  </span>
-                </span>
+           
               </a>
-              <div class="collapse" id="llllll">
-                <ul class="navbar-nav ps-3">
-                  <li>
-                    <a href="./Attedance.php" class="nav-link px-3">
-                      <span>student</span>
-                    </a>
-                  </li>
-
-              </div>
-              <div class="collapse" id="layouts">
-                <ul class="navbar-nav ps-3">
-              </div>
-              <div class="collapse" id="layouts">
-                <ul class="navbar-nav ps-3">
-                  <li>
-                    <a href="user.php" class="nav-link px-3">
-                      <span>new attedance</span>
-                    </a>
-                  </li>
-
-              </div>
+                
             </li>
 
 
+
             <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-book-fill"></i></span>
+                <span>classes</span>
+                
+              </a>
             </li>
             <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
             <li>
@@ -228,27 +202,29 @@ if(!$_SESSION['logged_in']){
       </div>
     </div>
     <main class="mt-5 pt-3">
-        <form action="">
-            <input type="text" name="name" >
-            <button type="submit"  name="sumbit" class="btn btn-primary t">submit</button>
-
-            </form>
-              
-<?php
- require_once("conect.php");
-
-if(isset($_POST['submit'])){
-  $firstname = $_POST['name'];
-  $result = mysqli_query($con,"INSERT INT0 * FROM  class")  ;
-
-   
-
-            
-}
-
-?>
-   
        
+       
+       <title>new student</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form action="" method="post">
+            <h2>Class Register</h2>
+            <div class="form-group">
+                <label for="name">Class Name</label>
+                <input type="text" id="name" name="className" required>
+            </div>
+         
+            <div class="form-group">
+                <button type="submit" class="submit" name="submit" >submit</button>
+            </div>
+        </form>
+
+
+    </div>
+</body>
+</html>
     </main>
      
     <script src="./js/bootstrap.bundle.min.js"></script>
@@ -266,7 +242,7 @@ if(isset($_POST['submit'])){
 
   <script>
 
-    $(document).ready(function(){
+     $(document).ready(function(){
       $('#example').dataTable({ 
         dom: 'Bfrtip',
         destroy: true,
@@ -280,6 +256,28 @@ if(isset($_POST['submit'])){
     )
         
   </script>
+   
+
+  <?php
+   require_once("conect.php");
+   
+  if(isset($_POST['submit'])){
+    $className =  $_POST['className'];
+
+
+   
+$sql = mysqli_query($con,"INSERT INTO class (class) VALUES ('$className')");
+
+if($sql){
+    echo"connect";
+    
+}else{
+    echo "not conc";
+}
+  }
+
+
+?>
 
   </body>
 </html>

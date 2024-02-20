@@ -220,15 +220,21 @@ if(!$_SESSION['logged_in']){
                 <input type="text"  name="phone" required>
             </div>
             <div class="form-group">
-                <select name="" id="">
-                  p
-                </select>
-                <input type="text" name="class" required>
+            <label for="email">Class</label>
+            <select name="class" class="form-control">
+              <?php
+                require_once("conect.php");
+                $result = mysqli_query($con,"SELECT * FROM  class");
+                while($row = mysqli_fetch_array($result)){
+                  ?>
+                  <option value="<?php echo $row['class'];?>"><?php echo $row['class'];?></option>
+                  <?php
+                }
+              
+              ?>
+            </select>
             </div>
-            <div class="form-group">
-                <label >section</label>
-                <input type="text"  name="section" required>
-            </div>
+         
             <div class="form-group">
                 <button type="submit" class="submit" name="submit" >submit</button>
             </div>
